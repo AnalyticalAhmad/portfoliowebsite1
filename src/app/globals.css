@@ -1,26 +1,69 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Core Colors - Editorial Light Mode Focus */
+  --bg-primary: #f8f8f8;
+  --bg-secondary: #ffffff;
+  --bg-dark: #121212;
+  
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --text-inverse: #f8f8f8;
+  --text-inverse-secondary: #a0a0a0;
+
+  --border: #e0e0e0;
+  --border-dark: #333333;
+  --accent: #222222;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-dark: var(--bg-dark);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-inverse: var(--text-inverse);
+  --color-text-inverse-secondary: var(--text-inverse-secondary);
+  --color-border: var(--border);
+  --color-border-dark: var(--border-dark);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans), sans-serif;
+  scroll-behavior: initial; /* Lenis handles this */
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Lenis Recommended Styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Intro Sequence Styles */
+body.intro-playing {
+  overflow: hidden !important;
+}
+
+body.intro-playing .custom-cursor {
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
